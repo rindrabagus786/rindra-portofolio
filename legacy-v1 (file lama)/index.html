@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RindraPortoV2.0 | Design & Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="rndr-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --color-bg: #050505;
+        --color-surface: #0a0a0f;
+        --color-surface-gray: #1a1a2e;
+        --color-primary: #00f3ff;
+        --color-secondary: #bc13fe;
+        --color-accent: #ffe600;
+        --text-main: #ffffff;
+        --text-muted: #9ca3af;
+      }
+
+      .high-contrast {
+        --color-bg: #000000;
+        --color-surface: #000000;
+        --color-surface-gray: #121212;
+        --color-primary: #ffff00; /* High Vis Yellow */
+        --color-secondary: #ffffff; /* High Vis White */
+        --color-accent: #00ff00; /* Terminal Green */
+        --text-main: #ffffff;
+        --text-muted: #e5e5e5;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-bg); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-surface-gray); 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-primary); 
+      }
+      
+      body {
+        /* Default Cyber Gradient */
+        background-color: var(--color-bg);
+        background-image: linear-gradient(135deg, #1a0b2e 0%, #050505 50%, #0b2e2e 100%);
+        color: var(--text-main);
+        min-height: 100vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      body.high-contrast {
+        background-image: none;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cyber: {
+                black: 'var(--color-bg)',
+                dark: 'var(--color-surface)',
+                gray: 'var(--color-surface-gray)',
+                primary: 'var(--color-primary)',
+                secondary: 'var(--color-secondary)',
+                accent: 'var(--color-accent)',
+              }
+            },
+            fontFamily: {
+              sans: ['Rajdhani', 'sans-serif'],
+              display: ['Orbitron', 'sans-serif'],
+            },
+            backgroundImage: {
+              'grid-pattern': "linear-gradient(to right, var(--color-surface-gray) 1px, transparent 1px), linear-gradient(to bottom, var(--color-surface-gray) 1px, transparent 1px)",
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Elemen Audio untuk Musik Latar -->
+    <!-- Ganti "path/to/your/music.mp3" dengan path file musik Anda -->
+    <audio id="background-music" src="te-conoci-slowed-cut.mp3" loop></audio>
+
+    <!-- Tombol Kontrol Musik -->
+    <button id="music-toggle" class="fixed bottom-5 left-5 z-50 p-3 rounded-full bg-cyber-gray/50 backdrop-blur-sm text-cyber-primary hover:bg-cyber-primary hover:text-cyber-black transition-colors" aria-label="Toggle Music">
+      <!-- Ikon Musik Mati (Default) -->
+      <svg id="music-off-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><path d="m9 9 12-2"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/><path d="m2 2 20 20"/></svg>
+      <!-- Ikon Musik Hidup (Tersembunyi) -->
+      <svg id="music-on-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+    </button>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const musicToggle = document.getElementById('music-toggle');
+        const backgroundMusic = document.getElementById('background-music');
+        const musicOnIcon = document.getElementById('music-on-icon');
+        const musicOffIcon = document.getElementById('music-off-icon');
+
+        musicToggle.addEventListener('click', () => {
+          if (backgroundMusic.paused) {
+            backgroundMusic.play();
+            musicOnIcon.classList.remove('hidden');
+            musicOffIcon.classList.add('hidden');
+          } else {
+            backgroundMusic.pause();
+            musicOnIcon.classList.add('hidden');
+            musicOffIcon.classList.remove('hidden');
+          }
+        });
+      });
+    </script>
+
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
