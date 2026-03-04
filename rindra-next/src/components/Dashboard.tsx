@@ -104,11 +104,11 @@ function UmamiSection({ stats }: { stats: UmamiStats }) {
                 subtitle="Pantau trafik dan interaksi real-time dari situs portofolio saya."
             />
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-                <StatCard label="Dilihat" value={stats.pageviews.toLocaleString()} highlight />
-                <StatCard label="Pengunjung" value={stats.visitors.toLocaleString()} highlight />
-                <StatCard label="Kunjungan" value={stats.visits.toLocaleString()} highlight />
-                <StatCard label="Negara" value={stats.countries} highlight />
-                <StatCard label="Acara" value={stats.events} highlight />
+                <StatCard label="Dilihat" value={(stats.pageviews || 0).toLocaleString()} highlight />
+                <StatCard label="Pengunjung" value={(stats.visitors || 0).toLocaleString()} highlight />
+                <StatCard label="Kunjungan" value={(stats.visits || 0).toLocaleString()} highlight />
+                <StatCard label="Negara" value={stats.countries || 0} highlight />
+                <StatCard label="Acara" value={stats.events || 0} highlight />
             </div>
 
             <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-6 relative h-52 flex flex-col justify-end">
