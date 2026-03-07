@@ -4,8 +4,9 @@ Haliii Aku **Rindra**. Salam kenal! 👋
 Saya mahasiswa Teknik Informatika semester 2 yang lagi asyik bereksperimen di dunia web development dan AI. Tempat ini adalah jurnal digital saya dalam mendokumentasikan perjalanan belajar.
 
 ### 🛠 Tech Stack & Eksperimen
-* **Framework:** Nuxt.js & Vue.js
-* **Animation:** GSAP & Three.js (Interactive Web)
+* **Framework:** Next.js & React
+* **Styling:** Tailwind CSS
+* **Animation:** Framer Motion & Three.js (Interactive Web)
 * **Focus:** Algoritma & Eksplorasi AI 🤖
 
 ---
