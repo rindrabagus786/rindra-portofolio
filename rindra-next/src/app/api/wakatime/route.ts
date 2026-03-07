@@ -9,6 +9,8 @@ export async function GET() {
         return NextResponse.json({
             totalCodingTime: '—',
             dailyAverage: '—',
+            range: { start: '—', end: '—' },
+            bestDay: { date: '—', duration: '—' },
             languages: [
                 { name: 'TypeScript', percent: 45, color: 'from-[#3178C6] to-blue-800' },
                 { name: 'CSS', percent: 25, color: 'from-[#38BDF8] to-cyan-600' },
